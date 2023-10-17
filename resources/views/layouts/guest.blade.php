@@ -22,18 +22,14 @@
 <body>
     @livewire('navigation-menu')
 
-    {{-- Hero Section --}}
-    <div class="w-full h-96 dark:bg-[#ffc017] flex items-center">
-        <div class="flex flex-col max-w-7xl mx-auto px-4 w-full space-y-4">
-            <h1 class="text-8xl font-bold">Stay curious.</h1>
-            <h3 class="text-xl font-thin max-w-sm !mb-6">
-                Discover stories, thinking, and expertise from writers on any topic.
-            </h3>
-            <button class="inline-flex items-center w-fit px-9 py-2 text-xl bg-black text-white rounded-full">
-                Start Reading
-            </button>
-        </div>
-    </div>
+    <!-- Page Heading -->
+    @if (isset($header))
+        <header class="bg-white dark:bg-[#ffc017] shadow">
+            <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+                {{ $header }}
+            </div>
+        </header>
+    @endif
 
     <div class="font-sans text-gray-900 dark:text-gray-100 antialiased">
         {{ $slot }}

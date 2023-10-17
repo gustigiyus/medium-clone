@@ -3,5 +3,9 @@
 @tailwind utilities;
 
 [x-cloak] {
-    display: none;
+  display: none;
+}
+
+.tools-icon:hover .tools-icon-item {
+  visibility: visible;
 }
