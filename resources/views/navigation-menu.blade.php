@@ -3,17 +3,23 @@
         $size = 'w-full';
         $bgColor = 'dark:bg-white';
         $bgDarkColor = 'dark:bg-white';
+        $borderNav = 'border-b-[1px] py-0';
+        $fixedNav = 'sticky';
     @endphp
 @else
     @php
         $size = 'max-w-7xl';
         $bgColor = 'bg-[#ffc017]';
         $bgDarkColor = 'dark:bg-[#ffc017]';
+        $borderNav = 'border-b-[1px] border-slate-800 py-1';
+        $fixedNav = 'fixed';
     @endphp
 @endauth
 
 
-<nav x-data="{ open: false }" class="{{ $bgColor }} {{ $bgDarkColor }} shadow-sm">
+<nav x-data="{ open: false }"
+    class="{{ $bgColor }} {{ $bgDarkColor }} shadow-sm  w-full z-20 {{ $fixedNav }} {{ $borderNav }}"
+    id="nav-bg">
     <!-- Primary Navigation Menu -->
     <div class="{{ $size }} mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-16 ">
@@ -39,7 +45,7 @@
                                 </button>
                             </span>
                             <input type="search" name="q"
-                                class="py-2 text-sm text-white rounded-md pl-10 focus:outline-none focus:bg-white focus:text-gray-900"
+                                class="py-2 text-sm text-white rounded-md pl-10 focus:outline-none border-none bg-zinc-100 focus:text-gray-900 focus:ring-0 focus:bg-zinc-100"
                                 placeholder="Search" autocomplete="off">
                         </div>
                     @endauth
@@ -49,13 +55,19 @@
                 <div class="flex justify-end ">
 
                     @guest()
-                        <div class="hidden space-x-8 sm:-my-px sm:ml-4 sm:flex">
+                        <div class="hidden space-x-8 sm:-my-px sm:ml-4 sm:flex text-slate-800">
                             <x-nav-link href="{{ route('login') }}" class="w-fit">
                                 {{ __('Our Story') }}
                             </x-nav-link>
                         </div>
 
-                        <div class="hidden space-x-8 sm:-my-px sm:ml-4 sm:flex">
+                        <div class="hidden space-x-8 sm:-my-px sm:ml-4 sm:flex text-slate-800">
+                            <x-nav-link href="{{ route('login') }}" class="w-fit">
+                                {{ __('Write') }}
+                            </x-nav-link>
+                        </div>
+
+                        <div class="hidden space-x-8 sm:-my-px sm:ml-4 sm:flex text-slate-800">
                             <x-nav-link href="{{ route('login') }}" :active="request()->routeIs('login')" class="w-fit">
                                 {{ __('Sign In') }}
                             </x-nav-link>
@@ -63,7 +75,8 @@
 
                         <div class="hidden space-x-8 sm:-my-px px-4 py-3 sm:flex">
                             <x-nav-link href="{{ route('register') }}"
-                                class="inline-flex items-center px-4 text-xs border b bg-black text-white rounded-full">
+                                class="items-center px-4 !pt-0 text-sm border bg-black font-black text-white rounded-full"
+                                id="btnGetStarted">
                                 Get Started
                             </x-nav-link>
                         </div>
@@ -184,7 +197,8 @@
                                             {{ Auth::user()->name }}
 
                                             <svg class="ml-2 -mr-0.5 h-4 w-4" xmlns="http://www.w3.org/2000/svg"
-                                                fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                                fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                                stroke="currentColor">
                                                 <path stroke-linecap="round" stroke-linejoin="round"
                                                     d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
                                             </svg>
