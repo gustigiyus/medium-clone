@@ -9,7 +9,7 @@
 
     <div class="pt-9">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 md:px-10">
-            <div class="bg-white dark:bg-white overflow-hidden sm:rounded-lg">
+            <div class="bg-white dark:bg-white sm:rounded-lg">
                 <div class="flex flex-row">
                     <div class="flex flex-col lg:w-8/12 w-full gap-5">
                         <div class="flex flex-row items-center gap-5 px-4 py-6 !ml-4 w-[768px] bg-white fixed border-b-[1px] z-10 ease-out !h-12"
@@ -36,7 +36,7 @@
 
                         {{-- CONTENT --}}
                         <div class="pt-[33px] mt-[33px]" id="content-article">
-                            @for ($i = 0; $i < 10; $i++)
+                            @for ($i = 0; $i < 20; $i++)
                                 <div class="flex flex-col">
                                     <div class="card py-3 space-y-2 px-5">
                                         <div class="card-header flex flex-row items-center gap-2">
@@ -144,9 +144,10 @@
 
                     </div>
 
-                    <div class="lg:w-1/3 md:w-1/3 lg:block md-custom:block hidden z-20">
-                        <div class="px-5 py-5 space-y-10 lg:w-[410px] md:w-[410px] ">
+                    <div class="lg:w-1/3 md:w-1/3 px-5 py-5 space-y-10 lg:flex lg:flex-col md-custom:flex md-custom:flex-col hidden"
+                        style="align-items: flex-start">
 
+                        <div class="bg-red-400" id="yoboy">
                             {{-- Staff Pick --}}
                             <div class="space-y-4">
                                 <h2 class="font-extrabold text-md mb-4">Staff Picks</h2>
@@ -258,7 +259,8 @@
                                         <div class="flex flex-col">
                                             <p class="lg:text-md md-custom:text-sm font-bold">Gusti Giustianto
                                             </p>
-                                            <p class="text-xs lg:block md-custom:hidden hidden text-slate-700">All the
+                                            <p class="text-xs lg:block md-custom:hidden hidden text-slate-700">All
+                                                the
                                                 advice I give
                                                 is
                                                 based on my own
@@ -286,7 +288,8 @@
                                         <div class="flex flex-col">
                                             <p class="lg:text-md md-custom:text-sm font-bold">Gusti Giustianto
                                             </p>
-                                            <p class="text-xs lg:block md-custom:hidden hidden text-slate-700">All the
+                                            <p class="text-xs lg:block md-custom:hidden hidden text-slate-700">All
+                                                the
                                                 advice I give
                                                 is
                                                 based on my own
@@ -314,7 +317,8 @@
                                         <div class="flex flex-col">
                                             <p class="lg:text-md md-custom:text-sm font-bold">Gusti Giustianto
                                             </p>
-                                            <p class="text-xs lg:block md-custom:hidden hidden text-slate-700">All the
+                                            <p class="text-xs lg:block md-custom:hidden hidden text-slate-700">All
+                                                the
                                                 advice I give
                                                 is
                                                 based on my own
@@ -381,8 +385,8 @@
                                     <p class="text-slate-500 text-[11px] font-medium">Teams</p>
                                 </div>
                             </div>
-
                         </div>
+
                     </div>
 
                 </div>
@@ -406,6 +410,22 @@
             contentArcticle.classList.remove('pt-[33px]', 'mt-[33px]');
             fixedBoxCategory.classList.remove('fixed', 'top-0', 'w-[768px]', 'duration-300');
             fixedBoxCategory.style = null;
+        }
+    })
+
+    const fixedBoxBookmarks = document.getElementById('bookmarks-nav');
+    const dada = document.getElementById('yoboy');
+    window.addEventListener('scroll', function() {
+        const scrollY = window.scrollY;
+        const windowHeight = window.innerHeight;
+        const bookmarksBottom = windowHeight - fixedBoxBookmarks.clientHeight;
+
+        if (scrollY >= bookmarksBottom) {
+            dada.classList.add('sticky', 'top-0', 'overflow-y-auto');
+            // fixedBoxBookmarks.classList.remove('sticky');
+            console.log("Element berada di posisi bottom (bottom: 0)");
+        } else {
+            console.log("Element belum berada di posisi bottom");
         }
     })
 </script>

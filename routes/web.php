@@ -25,4 +25,20 @@ Route::middleware([
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
+
+    Route::get('/article', function () {
+        return view('article');
+    })->name('article');
+
+    Route::get('/profile', function () {
+        return view('profile');
+    })->name('profile');
+
+    Route::get('/write', function () {
+        return view('write');
+    })->name('write');
+
+    Route::get('/me/notifications', function () {
+        return view('me/notifications');
+    })->name('notifications');
 });
