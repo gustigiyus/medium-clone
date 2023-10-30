@@ -31,124 +31,30 @@
         </h3>
 
         <div class="grid grid-cols-3 mx-auto gap-6">
-            <div class="flex flex-row gap-4">
-                <h1 class="text-3xl font-extrabold text-slate-200">01</h1>
-                <div class="flex flex-col space-y-2">
-                    <div class="flex flex-row items-center gap-1">
-                        <button
-                            class="flex text-sm border-2 border-transparent self-start rounded-full focus:outline-none focus:border-gray-300 transition">
-                            <img class="lg:h-auto w-6 rounded-full object-cover"
-                                src="http://localhost:8000/storage/profile-photos/jalKZxLvGH6fmnGQ2lNW3KMHIKczQyGgk2mFHfCM.jpg"
-                                alt="Gusti" />
-                        </button>
-                        <p class="font-medium text-xs text-slate-900">Gusti Giustianto</p>
-                    </div>
-                    <h3 class="text-black font-black">A personal, non-partisan perspective on
-                        the
-                        Israel-Hamas war
-                    </h3>
-                    <p class="font-light text-slate-500 text-xs">Oct 12 · 11 min read</p>
-                </div>
-            </div>
 
-            <div class="flex flex-row gap-4">
-                <h1 class="text-3xl font-extrabold text-slate-200">02</h1>
-                <div class="flex flex-col space-y-2">
-                    <div class="flex flex-row items-center gap-1">
-                        <button
-                            class="flex text-sm border-2 border-transparent self-start rounded-full focus:outline-none focus:border-gray-300 transition">
-                            <img class="lg:h-auto w-6 rounded-full object-cover"
-                                src="http://localhost:8000/storage/profile-photos/jalKZxLvGH6fmnGQ2lNW3KMHIKczQyGgk2mFHfCM.jpg"
-                                alt="Gusti" />
-                        </button>
-                        <p class="font-medium text-xs text-slate-900">Gusti Giustianto</p>
+            @foreach ($trendingPost as $d)
+                <div class="flex flex-row gap-4">
+                    <h1 class="text-3xl font-extrabold text-slate-200">0 {{ $loop->iteration }}</h1>
+                    <div class="flex flex-col space-y-2">
+                        <div class="flex flex-row items-center gap-1">
+                            <button
+                                class="flex text-sm border-2 border-transparent self-start rounded-full focus:outline-none focus:border-gray-300 transition">
+                                <img class="lg:h-auto w-6 rounded-full object-cover"
+                                    src="http://localhost:8000/storage/profile-photos/jalKZxLvGH6fmnGQ2lNW3KMHIKczQyGgk2mFHfCM.jpg"
+                                    alt="Gusti" />
+                            </button>
+                            <p class="font-medium text-xs text-slate-900">{{ $d->author->name }}</p>
+                        </div>
+                        <h3 class="text-black font-black">
+                            {{ $d->getExcerptTrending() }}
+                        </h3>
+                        <p class="font-light text-slate-500 text-xs">{{ $d->published_at->diffForHumans() }} ·
+                            {{ $d->getReadingTime() }} min
+                            read</p>
                     </div>
-                    <h3 class="text-black font-black">A personal, non-partisan perspective on
-                        the
-                        Israel-Hamas war
-                    </h3>
-                    <p class="font-light text-slate-500 text-xs">Oct 12 · 11 min read</p>
                 </div>
-            </div>
+            @endforeach
 
-            <div class="flex flex-row gap-4">
-                <h1 class="text-3xl font-extrabold text-slate-200">03</h1>
-                <div class="flex flex-col space-y-2">
-                    <div class="flex flex-row items-center gap-1">
-                        <button
-                            class="flex text-sm border-2 border-transparent self-start rounded-full focus:outline-none focus:border-gray-300 transition">
-                            <img class="lg:h-auto w-6 rounded-full object-cover"
-                                src="http://localhost:8000/storage/profile-photos/jalKZxLvGH6fmnGQ2lNW3KMHIKczQyGgk2mFHfCM.jpg"
-                                alt="Gusti" />
-                        </button>
-                        <p class="font-medium text-xs text-slate-900">Gusti Giustianto</p>
-                    </div>
-                    <h3 class="text-black font-black">A personal, non-partisan perspective on
-                        the
-                        Israel-Hamas war
-                    </h3>
-                    <p class="font-light text-slate-500 text-xs">Oct 12 · 11 min read</p>
-                </div>
-            </div>
-
-            <div class="flex flex-row gap-4">
-                <h1 class="text-3xl font-extrabold text-slate-200">04</h1>
-                <div class="flex flex-col space-y-2">
-                    <div class="flex flex-row items-center gap-1">
-                        <button
-                            class="flex text-sm border-2 border-transparent self-start rounded-full focus:outline-none focus:border-gray-300 transition">
-                            <img class="lg:h-auto w-6 rounded-full object-cover"
-                                src="http://localhost:8000/storage/profile-photos/jalKZxLvGH6fmnGQ2lNW3KMHIKczQyGgk2mFHfCM.jpg"
-                                alt="Gusti" />
-                        </button>
-                        <p class="font-medium text-xs text-slate-900">Gusti Giustianto</p>
-                    </div>
-                    <h3 class="text-black font-black">Data engineering at Meta: High-Level Overview of the internal tech
-                        stack
-                    </h3>
-                    <p class="font-light text-slate-500 text-xs">Oct 12 · 11 min read</p>
-                </div>
-            </div>
-
-            <div class="flex flex-row gap-4">
-                <h1 class="text-3xl font-extrabold text-slate-200">05</h1>
-                <div class="flex flex-col space-y-2">
-                    <div class="flex flex-row items-center gap-1">
-                        <button
-                            class="flex text-sm border-2 border-transparent self-start rounded-full focus:outline-none focus:border-gray-300 transition">
-                            <img class="lg:h-auto w-6 rounded-full object-cover"
-                                src="http://localhost:8000/storage/profile-photos/jalKZxLvGH6fmnGQ2lNW3KMHIKczQyGgk2mFHfCM.jpg"
-                                alt="Gusti" />
-                        </button>
-                        <p class="font-medium text-xs text-slate-900">Gusti Giustianto</p>
-                    </div>
-                    <h3 class="text-black font-black">A personal, non-partisan perspective on
-                        the
-                        Israel-Hamas war
-                    </h3>
-                    <p class="font-light text-slate-500 text-xs">Oct 12 · 11 min read</p>
-                </div>
-            </div>
-
-            <div class="flex flex-row gap-4">
-                <h1 class="text-3xl font-extrabold text-slate-200">06</h1>
-                <div class="flex flex-col space-y-2">
-                    <div class="flex flex-row items-center gap-1">
-                        <button
-                            class="flex text-sm border-2 border-transparent self-start rounded-full focus:outline-none focus:border-gray-300 transition">
-                            <img class="lg:h-auto w-6 rounded-full object-cover"
-                                src="http://localhost:8000/storage/profile-photos/jalKZxLvGH6fmnGQ2lNW3KMHIKczQyGgk2mFHfCM.jpg"
-                                alt="Gusti" />
-                        </button>
-                        <p class="font-medium text-xs text-slate-900">Gusti Giustianto</p>
-                    </div>
-                    <h3 class="text-black font-black">A personal, non-partisan perspective on
-                        the
-                        Israel-Hamas war
-                    </h3>
-                    <p class="font-light text-slate-500 text-xs">Oct 12 · 11 min read</p>
-                </div>
-            </div>
         </div>
     </div>
 
@@ -158,7 +64,7 @@
     <div class="flex flex-row max-w-7xl mx-auto px-10 mt-12 mb-12">
 
         <div class="flex flex-col w-8/12 gap-12">
-            @for ($i = 0; $i < 40; $i++)
+            @foreach ($featuredPost as $d)
                 <div class="flex flex-row">
                     {{-- arctile --}}
                     <div class="flex flex-col space-y-1">
@@ -169,19 +75,24 @@
                                     src="http://localhost:8000/storage/profile-photos/jalKZxLvGH6fmnGQ2lNW3KMHIKczQyGgk2mFHfCM.jpg"
                                     alt="Gusti" />
                             </button>
-                            <p class="font-medium text-xs text-slate-900">Gusti Giustianto</p>
+                            <p class="font-medium text-xs text-slate-900">{{ $d->author->name }}</p>
                         </div>
                         <h1 class="text-black font-black text-[20px]">
-                            How I Got Into And Managed to Walk Away from Burnout
+                            {{ $d->title }}
                         </h1>
-                        <p class="text-slate-500 font-light text-md">
-                            My story and practical tips to help you get out of burnout
+                        <p class="text-slate-500 font-light text-md w-[500px]">
+                            {{ $d->getExcerpt() }}
                         </p>
 
                         <div class="flex flex-row justify-between !mt-3">
-                            <p class="text-slate-500 font-light text-[13px]">Sep 29 · 8 min read ·
-                                <span
-                                    class="bg-zinc-200 rounded-full py-1 px-3 text-[13px] font-light hover:cursor-pointer">Burnout</span>
+                            <p class="text-slate-500 font-light text-[13px]">{{ $d->published_at->diffForHumans() }} ·
+                                {{ $d->getReadingTime() }} min
+                                read ·
+                                @foreach ($d->categories as $i)
+                                    <span
+                                        class="bg-zinc-200 rounded-full py-1 px-3 text-[13px] font-light hover:cursor-pointer">{{ $i->title }}</span>
+                                @endforeach
+
                             </p>
                             <div>
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="white" viewBox="0 0 24 24"
@@ -196,48 +107,25 @@
 
                     {{-- image --}}
                     <div class="card-thumbnail flex items-center lg:w-56 justify-center">
-                        <img src="https://placehold.co/400/png" alt="" class="w-40 h-32">
+                        @php
+                            $path = Storage::url($d->thumbnail);
+                        @endphp
+                        <img src="{{ url($path) }}" alt="" class="w-40 h-32 object-cover">
                     </div>
                 </div>
-            @endfor
+            @endforeach
         </div>
 
         <div class="w-1/3 h-64">
             <div class="space-y-3 transition-all duration-700 top-[92px] z-30" id="fixed-box">
                 <h1 class="font-bold text-black text-lg">Discover more of what matters to you</h1>
                 <div class="flex flex-wrap gap-3">
-                    <button
-                        class="text-black border md-custom:text-[12px] lg:text-[14px] bg-slate-200 rounded-full w-fit shadow-sm text-[14px] px-4 py-2 hover:bg-slate-300 hover:cursor-pointer">
-                        Data Science
-                    </button>
-                    <button
-                        class="text-black border md-custom:text-[12px] lg:text-[14px] bg-slate-200 rounded-full w-fit shadow-sm text-[14px] px-4 py-2 hover:bg-slate-300 hover:cursor-pointer">
-                        Self Improvement
-                    </button>
-                    <button
-                        class="text-black border md-custom:text-[12px] lg:text-[14px] bg-slate-200 rounded-full w-fit shadow-sm text-[14px] px-4 py-2 hover:bg-slate-300 hover:cursor-pointer">
-                        Writing
-                    </button>
-                    <button
-                        class="text-black border md-custom:text-[12px] lg:text-[14px] bg-slate-200 rounded-full w-fit shadow-sm text-[14px] px-4 py-2 hover:bg-slate-300 hover:cursor-pointer">
-                        Relationship
-                    </button>
-                    <button
-                        class="text-black border md-custom:text-[12px] lg:text-[14px] bg-slate-200 rounded-full w-fit shadow-sm text-[14px] px-4 py-2 hover:bg-slate-300 hover:cursor-pointer">
-                        Machin Learning
-                    </button>
-                    <button
-                        class="text-black border md-custom:text-[12px] lg:text-[14px] bg-slate-200 rounded-full w-fit shadow-sm text-[14px] px-4 py-2 hover:bg-slate-300 hover:cursor-pointer">
-                        Writing
-                    </button>
-                    <button
-                        class="text-black border md-custom:text-[12px] lg:text-[14px] bg-slate-200 rounded-full w-fit shadow-sm text-[14px] px-4 py-2 hover:bg-slate-300 hover:cursor-pointer">
-                        Writing
-                    </button>
-                    <button
-                        class="text-black border md-custom:text-[12px] lg:text-[14px] bg-slate-200 rounded-full w-fit shadow-sm text-[14px] px-4 py-2 hover:bg-slate-300 hover:cursor-pointer">
-                        Machin Learning
-                    </button>
+                    @foreach ($categoryPost as $d)
+                        <button
+                            class="text-black border md-custom:text-[12px] lg:text-[14px] bg-slate-200 rounded-full w-fit shadow-sm text-[14px] px-4 py-2 hover:bg-slate-300 hover:cursor-pointer">
+                            {{ $d->title }}
+                        </button>
+                    @endforeach
                 </div>
                 <div class="pt-2">
                     <a href="#" class="text-green-600 font-medium text-sm hover:text-black ">
